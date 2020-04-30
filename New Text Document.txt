@@ -8,6 +8,6 @@ mvn sonar:sonar
 
 StartSonar.bat for running locally
 
-for running colud :- mvn sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=reactjs-coder -Dsonar.login=690976c5b51b2aa06be447678c452a6cf796dcc6
+for running colud :- mvn clean install sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=reactjs-coder -Dsonar.login=690976c5b51b2aa06be447678c452a6cf796dcc6
 
 travis encrypt c4b98de6955f03da405ae370a621fc03f28a7ad8
