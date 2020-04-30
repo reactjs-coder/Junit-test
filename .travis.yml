@@ -9,7 +9,7 @@ addons:
 jdk:
   - oraclejdk11
 script:
-  - mvn sonar:sonar
+  - mvn sonar:sonar -Dsonar.host.url=https://sonarcloud.io -Dsonar.organization=reactjs-coder -Dsonar.login=690976c5b51b2aa06be447678c452a6cf796dcc6
 cache:
   directories:
     - '$HOME/.m2/repository'
