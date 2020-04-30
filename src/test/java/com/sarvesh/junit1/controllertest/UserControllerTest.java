@@ -9,7 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
+import org.junit.runner.JUnitCore;
+import org.junit.runner.Result;
 import org.junit.runner.RunWith;
+import org.junit.runner.notification.Failure;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -54,6 +57,7 @@ public class UserControllerTest {
 	@Test
 	public void update() {
 		long id = 1;
+		System.out.println("Hello");
 		User user = mock(User.class);
 		when(user.getId()).thenReturn(id);
 		when(user.getName()).thenReturn("the name");
@@ -68,6 +72,27 @@ public class UserControllerTest {
 		long id=1;
 		controller.removeUser(id);
 		verify(service).removeUser(id);
-		assertEquals(1, 2);
+	}
+	@Test
+	public void getUser() {
+		long  id =12;
+		User userInstance = mock(User.class);
+		controller.getUserById(id);
+		when(controller.getUserById(id)).thenReturn(userInstance);
+		when(userInstance.getAge()).thenReturn(30);
+		System.out.println(userInstance.toString());
+		verify(service).findById(id);
+		
+		Result result =  JUnitCore.runClasses(UserControllerTest.class);
+		for(Failure failure:result.getFailures())
+		{
+			 System.out.println(failure.toString());
+		}
+		System.out.println(result.wasSuccessful());
+		assertEquals(3, userInstance.getAge());
+		
+		
+		
+		
 	}
 }
