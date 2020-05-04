@@ -29,8 +29,25 @@ public class UserController {
 		return userService.addUser(user);
 	}
 
+	@SuppressWarnings("null")
 	@GetMapping("/getUsers")
 	public List<User> getUsers() {
+		String ptr = null; 
+		  
+        // Checking if ptr.equals null or works fine. 
+        try
+        { 
+            // This line of code throws NullPointerException 
+            // because ptr is null 
+            if (ptr.equals("gfg")) 
+                System.out.print("Same"); 
+            else 
+                System.out.print("Not Same"); 
+        } 
+        catch(NullPointerException e) 
+        { 
+            System.out.print("NullPointerException Caught"); 
+        } 
 		return userService.getUsers();
 	}
 
@@ -53,6 +70,24 @@ public class UserController {
 	public boolean removeUser(@PathVariable("id") long id) {
 			userService.removeUser(id);
 			return true;
+	}
+	
+	public void divideByZero() {
+		 int array[] = {20,20,40};
+	      int num1 = 15, num2 = 0;
+	      int result = 0;
+	      try {
+	         result = num1/num2;
+	         System.out.println("The result is" +result);
+	         
+	         for(int i = 2; i >= 0; i--) {
+	            System.out.println("The value of array is" +array[i]);
+	         }
+	      } catch (ArrayIndexOutOfBoundsException e) {
+	         System.out.println("Error. Array is out of Bounds"+e);
+	      } catch (ArithmeticException e) {
+	         System.out.println ("Can't be divided by Zero"+e);
+	      }
 	}
 
 }

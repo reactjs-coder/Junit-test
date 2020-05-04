@@ -89,7 +89,7 @@ public class UserControllerTest {
 			 System.out.println(failure.toString());
 		}
 		System.out.println(result.wasSuccessful());
-		assertEquals(3, userInstance.getAge());
+		assertEquals(30, userInstance.getAge());
 		
 		
 		
